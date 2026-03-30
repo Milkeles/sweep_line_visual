@@ -344,17 +344,27 @@ function CodePanel({ sx }) {
         ))}
       </div>
       <div style={{ overflowY: "auto", flex: 1 }}>
-        <pre style={{ fontFamily: "var(--font-mono,monospace)", fontSize: 10.5, lineHeight: 1.72, padding: "6px 0", margin: 0, color: "var(--color-text-primary)" }}>
+        <pre style={{ 
+            fontFamily: "var(--font-mono,monospace)", 
+            fontSize: 10.5, 
+            lineHeight: 1.72, 
+            padding: "6px 0", 
+            margin: 0, 
+            color: "var(--color-text-primary)",
+            textAlign: "left",  // add this
+          }}>
           {CODE.map((line, i) => {
             const c = COLORS[line.tag];
             const hl = line.tag === tag;
             return (
               <span key={i} style={{
-                display: "block", padding: "0 12px",
-                background: hl ? c?.bg : "transparent",
-                borderLeft: hl ? `2px solid ${c?.border}` : "2px solid transparent",
-                transition: "background 0.15s",
-              }}>
+                  display: "block", 
+                  padding: "0 12px",
+                  textAlign: "left",  // add this
+                  background: hl ? c?.bg : "transparent",
+                  borderLeft: hl ? `2px solid ${c?.border}` : "2px solid transparent",
+                  transition: "background 0.15s",
+                }}>
                 {line.s || "\u00A0"}
               </span>
             );
